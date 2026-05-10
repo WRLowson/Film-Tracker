@@ -6,6 +6,10 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
+import java.util.List;
+
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
 
 public class FilmApi {
@@ -44,13 +48,26 @@ public class FilmApi {
 
             String result = response.toString();
 
-            if (result.contains("\"Response\":\"False\"")) {
+            JsonObject json = JsonParser.parseString(result).getAsJsonObject();
 
-                System.out.println("Film not Found");
+            if ("False".equals(json.get("Response").getAsString())){
+                System.out.println("Film not found.");
 
-            } else {
+            }
+            else{
 
-                System.out.println(response);
+                String filmTitle = json.get("Title").getAsString();
+                String filmYear = json.get("Year").getAsString();
+                String genre = json.get("Genre").getAsString();
+                String director = json.get("Director").getAsString();
+
+                String actorSting = json.get("Actors").getAsString();
+
+                List<String> actors = List.of(actorSting.split(", "));
+
+                Film film = new Film(filmTitle, filmYear, genre, director, actors);
+
+                System.out.println(film);
             }
 
         } catch (Exception e) {
