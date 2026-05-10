@@ -8,7 +8,7 @@ public class Film {
     private String year;
     private String genre;
     private String director;
-    private List <String>actors;
+    private List<String> actors;
 
     public Film(String title, String year, String genre, String director, List<String> actors) {
         this.title = title;
@@ -19,7 +19,7 @@ public class Film {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return """
                 Title: %s
                 Year: %s

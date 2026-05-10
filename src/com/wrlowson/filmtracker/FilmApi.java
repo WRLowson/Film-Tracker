@@ -50,11 +50,10 @@ public class FilmApi {
 
             JsonObject json = JsonParser.parseString(result).getAsJsonObject();
 
-            if ("False".equals(json.get("Response").getAsString())){
+            if ("False".equals(json.get("Response").getAsString())) {
                 System.out.println("Film not found.");
 
-            }
-            else{
+            } else {
 
                 String filmTitle = json.get("Title").getAsString();
                 String filmYear = json.get("Year").getAsString();
