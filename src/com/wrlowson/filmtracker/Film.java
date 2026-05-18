@@ -30,6 +30,10 @@ public class Film {
                 """.formatted(title, year, genre, director, actors);
     }
 
+    public String getTitle() {
+        return title;
+    }
+
 
 }
 

@@ -17,7 +17,7 @@ public class FilmApi {
     private static final String API_KEY = "198316f1";
 
 
-    public static void searchFilm(String title, Integer year) {
+    public static Film searchFilm(String title, Integer year) {
 
         try {
             String encodedTitle = URLEncoder.encode(title, StandardCharsets.UTF_8);
@@ -53,6 +53,8 @@ public class FilmApi {
             if ("False".equals(json.get("Response").getAsString())) {
                 System.out.println("Film not found.");
 
+                return null;
+
             } else {
 
                 String filmTitle = json.get("Title").getAsString();
@@ -66,13 +68,17 @@ public class FilmApi {
 
                 Film film = new Film(filmTitle, filmYear, genre, director, actors);
 
-                System.out.println(film);
+                return film;
+
             }
 
         } catch (Exception e) {
             e.printStackTrace();
 
+            return null;
+
         }
+
     }
 }
 
