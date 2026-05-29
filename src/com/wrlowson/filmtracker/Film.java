@@ -39,6 +39,12 @@ public class Film {
     }
 
 
+
+    public String getYear() {
+        return year;
+    }
+
+
 }
 
 

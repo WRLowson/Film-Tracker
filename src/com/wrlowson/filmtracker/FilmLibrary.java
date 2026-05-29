@@ -18,6 +18,10 @@ public class FilmLibrary {
     private static final String FILE_NAME = "library.json";
     private List<Film> ownedFilms;
 
+    public List<Film> getFilms() {
+        return ownedFilms;
+    }
+
     public void loadLibrary() {
 
         try {
