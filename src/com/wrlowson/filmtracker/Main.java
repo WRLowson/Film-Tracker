@@ -7,6 +7,7 @@ public class Main {
     static void main(String[] args) {
 
         FilmLibrary library = new FilmLibrary();
+        library.loadLibrary();
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
@@ -20,6 +21,7 @@ public class Main {
                 break;
             }
             if (input.equalsIgnoreCase("show")) {
+                System.out.println("Loaded library.");
                 library.showFilms();
 
                 continue;
@@ -61,7 +63,8 @@ public class Main {
                     boolean added = library.addFilm(film);
 
                     if (added) {
-                        System.out.println("Film has been added.");
+                        library.saveLibrary();
+                        System.out.println("Film added.");
                     } else {
                         System.out.println("You already own this film.");
                     }

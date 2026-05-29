@@ -3,6 +3,7 @@ out/
 !**/src/main/**/out/
 !**/src/test/**/out/
 .kotlin
+library.json
 
 ### Eclipse ###
 .apt_generated

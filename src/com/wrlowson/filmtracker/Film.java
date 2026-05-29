@@ -10,6 +10,10 @@ public class Film {
     private String director;
     private List<String> actors;
 
+    public Film(){
+
+    }
+
     public Film(String title, String year, String genre, String director, List<String> actors) {
         this.title = title;
         this.year = year;
